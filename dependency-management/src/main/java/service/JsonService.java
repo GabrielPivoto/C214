@@ -11,6 +11,7 @@ import java.util.List;
 public class JsonService {
 
     Gson gson;
+    private final String JSON_NAME = "games.json";
 
     public JsonService(){
         gson = new GsonBuilder().setPrettyPrinting().create();
@@ -21,7 +22,7 @@ public class JsonService {
     }
 
     public void saveJson(String json) {
-        try (FileWriter writer = new FileWriter("games.json")) {
+        try (FileWriter writer = new FileWriter(JSON_NAME)) {
             writer.write(json);
         } catch (IOException e) {
             e.printStackTrace();
